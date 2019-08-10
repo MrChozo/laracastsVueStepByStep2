@@ -10,12 +10,13 @@
 <body>
     <div id="root">
         <input type="text" name="" id="input" v-model="message">
+        <p>The value of message is {{ message }}.</p>
     </div>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
     <script>
         let data = {
-            message: "Cheese sandwich."
+            message: "Hello, World"
         };
 
         new Vue({
