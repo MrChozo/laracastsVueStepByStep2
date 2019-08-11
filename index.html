@@ -9,7 +9,14 @@
 </head>
 <body>
     <div id="root">
-        <h1>{{ reversedMessage }}</h1>
+        <h2>All tasks</h2>
+        <ul>
+            <li v-for="task in tasks" v-text="task.description"></li>
+        </ul>
+        <h2>Incomplete tasks</h2>
+        <ul>
+            <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        </ul>
     </div>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
@@ -17,11 +24,23 @@
         var app = new Vue({
             el: '#root',
             data: {
-                message: 'Hello World'
+                tasks: [
+                    {description: 'Go to store', completed: false},
+                    {description: 'Wash the windows', completed: true},
+                    {description: 'Feed the dog', completed: false},
+                    {description: 'Grate the cheese', completed: false},
+                    {description: 'Peel potatoes for potato salad', completed: false},
+                ]
             },
             computed: {
-                reversedMessage() {
-                    return this.message.split('').reverse().join('');
+                incompleteTasks() {
+                    // ES5
+                    return this.tasks.filter(task => ! task.completed);
+
+                    // JS
+                    // this.tasks.filter(function(task) {
+                    //     return ! task.completed;
+                    // });
                 }
             }
         });
