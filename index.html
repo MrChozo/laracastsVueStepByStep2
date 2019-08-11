@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="root">
-        <button :disabled="isDisabled" @click="toggleDisabled">Toggle Me</button>
+        <h1>{{ reversedMessage }}</h1>
     </div>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
@@ -17,11 +17,11 @@
         var app = new Vue({
             el: '#root',
             data: {
-                isDisabled: false,
+                message: 'Hello World'
             },
-            methods: {
-                toggleDisabled() {
-                    this.isDisabled = true;
+            computed: {
+                reversedMessage() {
+                    return this.message.split('').reverse().join('');
                 }
             }
         });
