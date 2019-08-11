@@ -9,11 +9,7 @@
 </head>
 <body>
     <div id="root">
-        <ul>
-            <li v-for="name in names" v-text="name"></li>
-        </ul>
-        <input type="text" id="input" v-model="newName">
-        <button @click="addName">Add name</button>
+        <button :title="title">Hover over me</button>
     </div>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
@@ -21,15 +17,8 @@
         var app = new Vue({
             el: '#root',
             data: {
-                newName: '',
-                names: ["Tom", "Bob", "Carly", "Jessica", "Jeffrey"]
+                title: 'My Title'
             },
-            methods: {
-                addName() {
-                    this.names.push(this.newName);
-                    this.newName = '';
-                }
-            }
         });
     </script>
 </body>
