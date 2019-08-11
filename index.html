@@ -6,10 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vue.js</title>
+    <style>
+        button.is-loading {
+            background: #ececec;
+            color: #c7c7c7;
+        }
+    </style>
 </head>
 <body>
     <div id="root">
-        <button :title="title">Hover over me</button>
+        <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle Me</button>
     </div>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
@@ -17,8 +23,13 @@
         var app = new Vue({
             el: '#root',
             data: {
-                title: 'My Title'
+                isLoading: false
             },
+            methods: {
+                toggleClass() {
+                    this.isLoading = true;
+                }
+            }
         });
     </script>
 </body>
