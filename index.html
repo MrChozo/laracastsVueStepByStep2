@@ -9,41 +9,12 @@
 </head>
 <body>
     <div id="root">
-        <h2>All tasks</h2>
-        <ul>
-            <li v-for="task in tasks" v-text="task.description"></li>
-        </ul>
-        <h2>Incomplete tasks</h2>
-        <ul>
-            <li v-for="task in incompleteTasks" v-text="task.description"></li>
-        </ul>
+        <task>asrtasrastr</task>
+        <task>Chinichemi</task>
+        <task>Bagadaboo</task>
     </div>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
-    <script>
-        var app = new Vue({
-            el: '#root',
-            data: {
-                tasks: [
-                    {description: 'Go to store', completed: false},
-                    {description: 'Wash the windows', completed: true},
-                    {description: 'Feed the dog', completed: false},
-                    {description: 'Grate the cheese', completed: false},
-                    {description: 'Peel potatoes for potato salad', completed: false},
-                ]
-            },
-            computed: {
-                incompleteTasks() {
-                    // ES5
-                    return this.tasks.filter(task => ! task.completed);
-
-                    // JS
-                    // this.tasks.filter(function(task) {
-                    //     return ! task.completed;
-                    // });
-                }
-            }
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
